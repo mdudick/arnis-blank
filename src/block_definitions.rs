@@ -739,14 +739,7 @@ pub fn get_stair_block_for_material(material: Block) -> Block {
 
 // Window variations for different building types
 pub static WINDOW_VARIATIONS: [Block; 7] = [
-    GLASS,
     WHITE_CONCRETE,
-    GRAY_STAINED_GLASS,
-    LIGHT_GRAY_STAINED_GLASS,
-    GRAY_STAINED_GLASS,
-    BROWN_STAINED_GLASS,
-    WHITE_STAINED_GLASS,
-    TINTED_GLASS,
 ];
 
 // Window types for different building styles
@@ -757,27 +750,21 @@ pub fn get_window_block_for_building_type(building_type: &str) -> Block {
     match building_type {
         "residential" | "house" | "apartment" => {
             let residential_windows = [
-                GLASS,
-                WHITE_STAINED_GLASS,
-                LIGHT_GRAY_STAINED_GLASS,
-                BROWN_STAINED_GLASS,
+                WHITE_CONCRETE,
             ];
             residential_windows[rng.gen_range(0..residential_windows.len())]
         }
         "hospital" | "school" | "university" => {
-            let institutional_windows = [GLASS, WHITE_STAINED_GLASS, LIGHT_GRAY_STAINED_GLASS];
+            let institutional_windows = [WHITE_CONCRETE];
             institutional_windows[rng.gen_range(0..institutional_windows.len())]
         }
         "hotel" | "restaurant" => {
-            let hospitality_windows = [GLASS, WHITE_STAINED_GLASS];
+            let hospitality_windows = [WHITE_CONCRETE];
             hospitality_windows[rng.gen_range(0..hospitality_windows.len())]
         }
         "industrial" | "warehouse" => {
             let industrial_windows = [
-                GLASS,
-                GRAY_STAINED_GLASS,
-                LIGHT_GRAY_STAINED_GLASS,
-                BROWN_STAINED_GLASS,
+                WHITE_CONCRETE,
             ];
             industrial_windows[rng.gen_range(0..industrial_windows.len())]
         }
@@ -791,145 +778,138 @@ pub fn get_random_floor_block() -> Block {
     let mut rng = rand::thread_rng();
 
     let floor_options = [
-        WHITE_CONCRETE,
-        GRAY_CONCRETE,
-        LIGHT_GRAY_CONCRETE,
-        POLISHED_ANDESITE,
-        SMOOTH_STONE,
-        STONE_BRICKS,
-        MUD_BRICKS,
-        OAK_PLANKS,
+        AIR,
     ];
     floor_options[rng.gen_range(0..floor_options.len())]
 }
 
 // Define all predefined colors with their blocks
 static DEFINED_COLORS: &[ColorBlockMapping] = &[
-    ((233, 107, 57), &[BRICK, NETHER_BRICK]),
+    ((233, 107, 57), &[WHITE_CONCRETE, WHITE_CONCRETE]),
     (
         (18, 12, 13),
-        &[POLISHED_BLACKSTONE_BRICKS, BLACKSTONE, DEEPSLATE_BRICKS],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
     ((76, 127, 153), &[LIGHT_BLUE_TERRACOTTA]),
     (
         (0, 0, 0),
-        &[DEEPSLATE_BRICKS, BLACKSTONE, POLISHED_BLACKSTONE],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
     (
         (186, 195, 142),
         &[
-            END_STONE_BRICKS,
-            SANDSTONE,
-            SMOOTH_SANDSTONE,
-            LIGHT_GRAY_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (57, 41, 35),
-        &[BROWN_TERRACOTTA, BROWN_CONCRETE, MUD_BRICKS, BRICK],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
     (
         (112, 108, 138),
-        &[LIGHT_BLUE_TERRACOTTA, GRAY_TERRACOTTA, GRAY_CONCRETE],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
     (
         (122, 92, 66),
-        &[MUD_BRICKS, BROWN_TERRACOTTA, SANDSTONE, BRICK],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
-    ((24, 13, 14), &[NETHER_BRICK, BLACKSTONE, DEEPSLATE_BRICKS]),
+    ((24, 13, 14), &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE]),
     (
         (159, 82, 36),
         &[
-            BROWN_TERRACOTTA,
-            BRICK,
-            POLISHED_GRANITE,
-            BROWN_CONCRETE,
-            NETHERITE_BLOCK,
-            POLISHED_DEEPSLATE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (128, 128, 128),
         &[
-            POLISHED_ANDESITE,
-            LIGHT_GRAY_CONCRETE,
-            SMOOTH_STONE,
-            STONE_BRICKS,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (174, 173, 174),
         &[
-            POLISHED_ANDESITE,
-            LIGHT_GRAY_CONCRETE,
-            SMOOTH_STONE,
-            STONE_BRICKS,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
-    ((141, 101, 142), &[STONE_BRICKS, BRICK, MUD_BRICKS]),
+    ((141, 101, 142), &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE]),
     (
         (142, 60, 46),
         &[
-            BLACK_TERRACOTTA,
-            NETHERITE_BLOCK,
-            NETHER_BRICK,
-            POLISHED_GRANITE,
-            POLISHED_DEEPSLATE,
-            BROWN_TERRACOTTA,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (153, 83, 28),
         &[
-            BLACK_TERRACOTTA,
-            POLISHED_GRANITE,
-            BROWN_CONCRETE,
-            BROWN_TERRACOTTA,
-            STONE_BRICKS,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (224, 216, 175),
         &[
-            SMOOTH_SANDSTONE,
-            LIGHT_GRAY_CONCRETE,
-            POLISHED_ANDESITE,
-            SMOOTH_STONE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (188, 182, 179),
         &[
-            SMOOTH_SANDSTONE,
-            LIGHT_GRAY_CONCRETE,
-            QUARTZ_BRICKS,
-            POLISHED_ANDESITE,
-            SMOOTH_STONE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (35, 86, 85),
         &[
-            POLISHED_BLACKSTONE_BRICKS,
-            BLUE_TERRACOTTA,
-            LIGHT_BLUE_TERRACOTTA,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
     (
         (255, 255, 255),
-        &[WHITE_CONCRETE, QUARTZ_BRICKS, QUARTZ_BLOCK],
+        &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE],
     ),
     (
         (209, 177, 161),
         &[
-            WHITE_TERRACOTTA,
-            SMOOTH_SANDSTONE,
-            SMOOTH_STONE,
-            SANDSTONE,
-            LIGHT_GRAY_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
+            WHITE_CONCRETE,
         ],
     ),
-    ((191, 147, 42), &[SMOOTH_SANDSTONE, SANDSTONE, SMOOTH_STONE]),
+    ((191, 147, 42), &[WHITE_CONCRETE, WHITE_CONCRETE, WHITE_CONCRETE]),
 ];
 
 // Function to randomly select building wall block with alternatives
@@ -956,33 +936,7 @@ pub fn get_fallback_building_block() -> Block {
     let mut rng = rand::thread_rng();
 
     let fallback_options = [
-        BLACKSTONE,
-        BLACK_TERRACOTTA,
-        BRICK,
-        BROWN_CONCRETE,
-        BROWN_TERRACOTTA,
-        DEEPSLATE_BRICKS,
-        END_STONE_BRICKS,
-        GRAY_CONCRETE,
-        GRAY_TERRACOTTA,
-        LIGHT_BLUE_TERRACOTTA,
-        LIGHT_GRAY_CONCRETE,
-        MUD_BRICKS,
-        NETHER_BRICK,
-        POLISHED_ANDESITE,
-        POLISHED_BLACKSTONE,
-        POLISHED_BLACKSTONE_BRICKS,
-        POLISHED_DEEPSLATE,
-        POLISHED_GRANITE,
-        QUARTZ_BLOCK,
-        QUARTZ_BRICKS,
-        SANDSTONE,
-        SMOOTH_SANDSTONE,
-        SMOOTH_STONE,
-        STONE_BRICKS,
         WHITE_CONCRETE,
-        WHITE_TERRACOTTA,
-        OAK_PLANKS,
     ];
     fallback_options[rng.gen_range(0..fallback_options.len())]
 }
