@@ -740,6 +740,7 @@ pub fn get_stair_block_for_material(material: Block) -> Block {
 // Window variations for different building types
 pub static WINDOW_VARIATIONS: [Block; 7] = [
     GLASS,
+    WHITE_CONCRETE,
     GRAY_STAINED_GLASS,
     LIGHT_GRAY_STAINED_GLASS,
     GRAY_STAINED_GLASS,
